@@ -36,5 +36,19 @@ namespace RealEstate_Dapper.Api.Repositories.CategoryRepository
                 await connect.ExecuteAsync(query, parameters);
             }
         }
+
+        public async Task DeleteCategory(int id)
+        {
+            string query = "delete from Category Where CategoryID = @id";
+            var parameter = new DynamicParameters();
+            parameter.Add("@id", id);
+
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, parameter);
+            }
+
+
+        }
     }
 }
