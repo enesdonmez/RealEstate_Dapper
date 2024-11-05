@@ -1,5 +1,6 @@
 using RealEstate_Dapper.Api.Models.DapperContext;
 using RealEstate_Dapper.Api.Repositories.CategoryRepository;
+using RealEstate_Dapper.Api.Repositories.ProductRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddTransient<Context>();
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
+builder.Services.AddTransient<IProductRepository, ProductRepository>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
