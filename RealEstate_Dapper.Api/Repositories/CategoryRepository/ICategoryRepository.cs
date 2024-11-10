@@ -1,4 +1,6 @@
 ﻿using RealEstate_Dapper.Api.Dtos.CategoryDtos;
+using RealEstate_Dapper.Api.Dtos.WhoWeAreDetailDtos;
+using RealEstate_Dapper.Api.Dtos.WhoWeAreDtos;
 
 namespace RealEstate_Dapper.Api.Repositories.CategoryRepository
 {
