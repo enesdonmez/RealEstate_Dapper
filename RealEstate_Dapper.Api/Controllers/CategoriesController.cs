@@ -30,7 +30,7 @@ namespace RealEstate_Dapper.Api.Controllers
             return Ok("Kategori eklendi.");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             await _categoryRepository.DeleteCategoryAsync(id);
