@@ -8,7 +8,7 @@
     <div class="row g-4">
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Responsive Table</h6>
+                <h6 class="mb-4">Kategori listesi</h6>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -26,15 +26,27 @@
                                 <tr>
                                     <th scope="row">@item.CategoryID</th>
                                     <td>@item.CategoryName</td>
-                                    <td>>@item.CategoryStatus</td>
-                                    <td><a href="" class="btn btn-danger">Sil</a></td>
-                                    <td><a href="" class="btn btn-success">Güncelle</a></td>
-                                    
+                                    @if (@item.CategoryStatus == true)
+                                    {
+
+                                        <td>
+                                            <p class="btn btn-outline-success rounded-pill m-2">Aktif</p>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            <p class="btn btn-outline-danger rounded-pill m-2">Pasif</p>
+                                        </td>
+                                    }
+                                    <td><a href="/Category/DeleteCategory/@item.CategoryID" class="btn btn-danger">Sil</a></td>
+                                    <td><a href="/Category/UpdateCategory/@item.CategoryID" class="btn btn-success">Güncelle</a></td>
+
                                 </tr>
                             }
                         </tbody>
                     </table>
-                    <a href="" class="btn btn-primary">kategori ekle</a>
+                    <a href="/Category/CreateCategory/" class="btn btn-primary">kategori ekle</a>
                 </div>
             </div>
         </div>
