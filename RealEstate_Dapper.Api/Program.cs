@@ -1,6 +1,7 @@
 using RealEstate_Dapper.Api.Models.DapperContext;
 using RealEstate_Dapper.Api.Repositories.BottomGridRepositories;
 using RealEstate_Dapper.Api.Repositories.CategoryRepository;
+using RealEstate_Dapper.Api.Repositories.EmployeeRepositories;
 using RealEstate_Dapper.Api.Repositories.PopularLocationRepositories;
 using RealEstate_Dapper.Api.Repositories.ProductRepository;
 using RealEstate_Dapper.Api.Repositories.ServiceRepository;
@@ -19,6 +20,7 @@ builder.Services.AddTransient<IServiceRepository, ServiceRepository>();
 builder.Services.AddTransient<IBottomGridRepository, BottomGridRepository>();
 builder.Services.AddTransient<IPopularLocationRepository, PopularLocationRepository>();
 builder.Services.AddTransient<ITestimonialRepository, TestimonialRepository>();
+builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -30,6 +32,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+   
 }
 
 app.UseHttpsRedirection();
