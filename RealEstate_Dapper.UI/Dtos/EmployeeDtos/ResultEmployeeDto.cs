@@ -1,4 +1,4 @@
-﻿namespace RealEstate_Dapper.Api.Dtos.EmployeeDtos
+﻿namespace RealEstate_Dapper.UI.Dtos.EmployeeDtos
 {
     public class ResultEmployeeDto
     {

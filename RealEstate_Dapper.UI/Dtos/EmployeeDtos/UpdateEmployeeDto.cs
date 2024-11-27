@@ -1,6 +1,6 @@
-﻿namespace RealEstate_Dapper.Api.Dtos.EmployeeDtos
+﻿namespace RealEstate_Dapper.UI.Dtos.EmployeeDtos
 {
-    public class ResultEmployeeDto
+    public class UpdateEmployeeDto
     {
         public int EmployeeID { get; set; }
         public string Name { get; set; }
