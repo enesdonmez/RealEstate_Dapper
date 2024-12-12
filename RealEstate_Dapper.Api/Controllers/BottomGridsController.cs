@@ -32,7 +32,7 @@ namespace RealEstate_Dapper.Api.Controllers
             return Ok("Eklendi.");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             await _bottomGridRepository.DeleteBottomGridAsync(id);
