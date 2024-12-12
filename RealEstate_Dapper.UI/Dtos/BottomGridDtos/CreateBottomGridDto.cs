@@ -1,4 +1,4 @@
-﻿namespace RealEstate_Dapper.Api.Dtos.BottomGridDtos
+﻿namespace RealEstate_Dapper.UI.Dtos.BottomGridDtos
 {
     public class CreateBottomGridDto
     {
