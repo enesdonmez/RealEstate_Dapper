@@ -15,7 +15,7 @@ namespace RealEstate_Dapper.Api.Repositories.ServiceRepository
         }
         public async Task CreateServiceAsync(CreateServiceDto createServiceDto)
         {
-            string query = "insert into Service (CategoryName,CategoryStatus) Values(@serviceName,@serviceStatus)";
+            string query = "insert into Service (ServiceName,ServiceStatus) Values(@serviceName,@serviceStatus)";
             var parameters = new DynamicParameters();
             parameters.Add("@serviceName", createServiceDto.ServiceName);
             parameters.Add("@serviceStatus", true);
@@ -51,7 +51,7 @@ namespace RealEstate_Dapper.Api.Repositories.ServiceRepository
 
         public async Task<GetByIDServiceDto> GetServiceAsync(int id)
         {
-            var query = "Select * from Service Where CategoryID = @id";
+            var query = "Select * from Service Where ServiceID = @id";
             var parameter = new DynamicParameters();
             parameter.Add("@id", id);
 
