@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using RealEstate_Dapper.UI.Dtos.WhoWeAreDtos;
+using RealEstate_Dapper.UI.Dtos.ServiceDtos;
 
 namespace RealEstate_Dapper.UI.ViewComponents.HomePage
 {
@@ -19,7 +20,7 @@ namespace RealEstate_Dapper.UI.ViewComponents.HomePage
             var client2 = _httpClientFactory.CreateClient();
             var response = await client.GetAsync("https://localhost:44377/api/WhoWeAreDetail");
             var response2 = await client.GetAsync("https://localhost:44377/api/Services");
-            if (response.IsSuccessStatusCode && response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode && response2.IsSuccessStatusCode)
             {
                 var jsonData = await response.Content.ReadAsStringAsync();
                 var jsonData2 = await response2.Content.ReadAsStringAsync();
