@@ -18,7 +18,7 @@
             <div class="bg-light rounded h-100 p-4">
                 <h6 class="mb-4">Popüler Lokasyon listesi</h6>
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -37,14 +37,14 @@
                                     <td><img src="@item.ImageUrl" height="70" width="110" /></td>
                                     
 
-                                    <td><a href="/PopularLocation/DeletePopularLocation/@item.LocationID" class="btn btn-danger">Sil</a></td>
+                                    <td><a href="/PopularLocation/DeletePopularLocation/@item.LocationID"  class="btn btn-danger">Sil</a></td>
                                     <td><a href="/PopularLocation/UpdatePopularLocation/@item.LocationID" class="btn btn-success">Güncelle</a></td>
 
                                 </tr>
                             }
                         </tbody>
                     </table>
-                    <a href="/PopularLocation/CreatePopularLocation/" class="btn btn-primary">kategori ekle</a>
+                    <a href="/PopularLocation/CreatePopularLocation/" class="btn btn-primary">Lokasyon ekle</a>
                 </div>
             </div>
         </div>

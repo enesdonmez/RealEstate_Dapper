@@ -5,24 +5,58 @@
 }
 
 <div class="container-fluid pt-4 px-4">
-    <div class="row g-4">
-        <div class="col-12">
-            <div class="bg-light rounded h-100 p-4">
-                <h4> Popüler Lokasyon Güncelle</h4>
-                <form method="post">
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="bg-light rounded h-100 p-4">
+                    <h4>Popüler Lokasyon Güncelle</h4>
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="hidden" asp-for="LocationID" />
+                        <label>Şehir adı</label>
+                        <input type="text" asp-for="CityName" class="form-control" />
+                        <br />
 
-                    <label>Şehir adı</label>
-                    <input type="text" asp-for="CityName" class="form-control" />
-                    <br />
+                        <label>Mevcut Resim</label>
+                        <div>
+                            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                            {
+                                <img id="currentImage" src="@Model.ImageUrl" alt="Current Image" class="img-thumbnail" style="max-width: 200px; max-height: 200px;" />
+                            }
+                            else
+                            {
+                                <p>Henüz bir resim yok.</p>
+                            }
+                        </div>
+                        <br />
 
-                    <label>Resim</label>
-                    <input type="file" asp-for="ImageUrl" class="form-control" />
-                    <br />
+                        <label>Yeni Resim Seç</label>
+                        <input type="file" asp-for="ImageUrl" class="form-control" id="imageInput" />
+                        <br />
 
-                    <button class="btn btn-success">Kaydet</button>
-                </form>
+                        <label>Yeni Resim Önizleme</label>
+                        <div>
+                            <img id="previewImage" class="img-thumbnail" style="max-width: 200px; max-height: 200px; display: none;" />
+                        </div>
+                        <br />
+
+                        <button class="btn btn-success">Kaydet</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
+<script>
+    document.getElementById('imageInput').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const previewImage = document.getElementById('previewImage');
+                previewImage.src = e.target.result;
+                previewImage.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>

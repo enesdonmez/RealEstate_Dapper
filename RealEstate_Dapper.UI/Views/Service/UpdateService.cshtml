@@ -15,7 +15,16 @@
                     <input type="text" asp-for="ServiceName" class="form-control" />
                     <br />
                     <label>Statü</label>
-                    <input type="text" asp-for="ServiceStatus" class="form-control" />
+                    <div class="d-flex align-items-center">
+                        <div class="form-check form-check-inline">
+                            <input type="radio" asp-for="ServiceStatus" class="form-check-input" id="statusActive" value="true" />
+                            <label class="form-check-label" for="statusActive">Aktif</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" asp-for="ServiceStatus" class="form-check-input" id="statusPassive" value="false" />
+                            <label class="form-check-label" for="statusPassive">Pasif</label>
+                        </div>
+                    </div>
                     <br />
 
                     <button class="btn btn-primary">Güncelle</button>

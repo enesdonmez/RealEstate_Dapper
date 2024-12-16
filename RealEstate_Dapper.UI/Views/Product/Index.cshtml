@@ -8,9 +8,9 @@
     <div class="row g-4">
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">İlan listesi</h6>
+                <h6 class="mb-4 text-center">İLAN LİSTESİ</h6>
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -22,6 +22,7 @@
                                 <th scope="col">Tür</th>
                                 <th scope="col">Sil</th>
                                 <th scope="col">Güncelle</th>
+                                <th scope="col">Günün Fırsatı</th>
                                 <th scope="col">Sitede Gör</th>
                             </tr>
                         </thead>
@@ -39,7 +40,17 @@
 
                                     <td><a href="/Product/DeleteProduct/@item.ProductID" class="btn btn-danger">Sil</a></td>
                                     <td><a href="/Product/UpdateProduct/@item.ProductID" class="btn btn-success">Güncelle</a></td>
-                                    <td><a href="/Product/ProductDetail/@item.ProductID" class="btn btn-outline-secondary">Sitede Gör</a></td>
+                                    <td>
+                                        @if (item.DealOfTheDay == true)
+                                        {
+                                            <a href="/Product/ProductDealOfTheDayStatusChangeToFalse/@item.ProductID" class="btn btn-info">Pasif Yap</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="/Product/ProductDealOfTheDayStatusChangeToTrue/@item.ProductID" class="btn btn-dark">Aktif Yap</a>
+                                        }
+                                    </td>
+                                    <td><a href="/Product/ProductDetail/@item.ProductID" class="btn btn-outline-dark">Sitede Gör</a></td>
 
                                 </tr>
                             }

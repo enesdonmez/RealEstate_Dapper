@@ -75,10 +75,12 @@ namespace RealEstate_Dapper.UI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateCategory(UpdatePopularLocationDto updatePopularLocationDto)
+        public async Task<IActionResult> UpdatePopularLocation(UpdatePopularLocationDto updatePopularLocationDto)
         {
             var client = _httpClientFactory.CreateClient();
+            updatePopularLocationDto.ImageUrl = $"/CityImages/{updatePopularLocationDto.ImageUrl}";
             var data = JsonConvert.SerializeObject(updatePopularLocationDto);
+
             StringContent content = new StringContent(data, Encoding.UTF8, "application/json");
             var response = await client.PutAsync("https://localhost:44377/api/PopularLocations", content);
             if (response.IsSuccessStatusCode)

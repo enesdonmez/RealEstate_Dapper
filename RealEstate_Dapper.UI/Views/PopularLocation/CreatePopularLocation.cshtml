@@ -17,7 +17,13 @@
                     <br />
 
                     <label>Resim</label>
-                    <input type="file" asp-for="ImageUrl" class="form-control" />
+                    <input type="file" asp-for="ImageUrl" class="form-control" id="imageInput" />
+                    <br />
+
+                    <label>Resim Önizleme</label>
+                    <div>
+                        <img id="previewImage" class="img-thumbnail" style="max-width: 200px; max-height: 200px; display: none;" />
+                    </div>
                     <br />
 
                     <button class="btn btn-success">Kaydet</button>
@@ -27,3 +33,17 @@
     </div>
 </div>
 
+<script>
+    document.getElementById('imageInput').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const previewImage = document.getElementById('previewImage');
+                previewImage.src = e.target.result;
+                previewImage.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
