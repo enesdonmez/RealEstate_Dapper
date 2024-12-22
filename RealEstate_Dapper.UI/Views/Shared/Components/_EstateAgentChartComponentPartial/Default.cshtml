@@ -1,0 +1,76 @@
+﻿@model List<ResultEstateAgentChartDto>
+
+<style>
+    .chart-container {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px; /* Added for spacing */
+    }
+</style>
+
+<div class="chart-container">
+    <canvas id="myChart" style="max-width: 500px"></canvas>
+    <canvas id="myChart1" style="max-width: 500px"></canvas>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Model verilerini JSON'a çevir ve al
+     var xValuesChart1 = @Html.Raw(Json.Serialize(Model.Select(item => item.City)));
+        var yValuesChart1 = @Html.Raw(Json.Serialize(Model.Select(item => item.CityCount)));
+
+   
+
+    // Grafik oluşturma
+    const ctx = document.getElementById('myChart');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: xValuesChart1,
+            datasets: [{
+                label: 'ŞEHİR - İLAN İSTATİSTİĞİ',
+                data: yValuesChart1,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
+    // Grafik oluşturma
+    const ctx2 = document.getElementById('myChart1');
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: xValuesChart1,
+            datasets: [{
+                label: 'ŞEHİR - İLAN İSTATİSTİĞİ',
+                data: yValuesChart1,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

@@ -1,0 +1,45 @@
+﻿@model List<ResultEstateAgentLastProductsDto>
+@{
+    int count = 0;
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-light text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0">Son 5 ilan</h6>
+            <a href="/Product/Index">Tüm ilanlara git</a>
+        </div>
+        <div class="table-responsive">
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <thead>
+                    <tr class="text-dark">
+                        <th scope="col">#</th>
+                        <th scope="col">Tarih</th>
+                        <th scope="col">Başlık</th>
+                        <th scope="col">Şehir - ilçe</th>
+                        <th scope="col">Kategori</th>
+                        <th scope="col">Fiyat</th>
+                        <th scope="col">Tür</th>
+                        <th scope="col">İlanı gör</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <td>@count</td>
+                            <td>@item.AdvertisementDate.ToShortDateString()</td>
+                            <td>@item.Title</td>
+                            <td>@item.City-@item.District</td>
+                            <td>@item.CategoryName</td>
+                            <td>@item.Price ₺</td>
+                            <td>@item.Type</td>
+                            <td><a class="btn btn-sm btn-primary" href="">İlanı Gör</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
