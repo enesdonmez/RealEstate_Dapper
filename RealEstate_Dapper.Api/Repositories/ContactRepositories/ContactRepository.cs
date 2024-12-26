@@ -13,7 +13,7 @@ namespace RealEstate_Dapper.Api.Repositories.ContactRepositories
             _context = context;
         }
 
-        public async Task CreateContactAsync(CreateContactDto createContactDto)
+        public async Task CreateContact(CreateContactDto createContactDto)
         {
             var query = "insert into Contact values(@name,@subject,@mail,@message,@sendDate)";
             var parameter = new DynamicParameters();
@@ -30,7 +30,7 @@ namespace RealEstate_Dapper.Api.Repositories.ContactRepositories
             }
         }
 
-        public async Task DeleteContactAsync(int id)
+        public async Task DeleteContact(int id)
         {
             string query = "delete from Contact Where ContactID = @id";
             var parameter = new DynamicParameters();
@@ -42,7 +42,7 @@ namespace RealEstate_Dapper.Api.Repositories.ContactRepositories
             }
         }
 
-        public async Task<List<ResultContactDto>> GetAllContactAsync()
+        public async Task<List<ResultContactDto>> GetAllContact()
         {
             string query = "select * from Contact";
 
@@ -53,7 +53,7 @@ namespace RealEstate_Dapper.Api.Repositories.ContactRepositories
             }
         }
 
-        public async Task<GetByIdContactDto> GetContactAsync(int id)
+        public async Task<GetByIdContactDto> GetContact(int id)
         {
             var query = "Select * from Contact Where ContactID = @id";
             var parameter = new DynamicParameters();
@@ -66,7 +66,7 @@ namespace RealEstate_Dapper.Api.Repositories.ContactRepositories
             }
         }
 
-        public async Task<List<LastFourContactResultDto>> GetLastFourContactAsync()
+        public async Task<List<LastFourContactResultDto>> GetLastFourContact()
         {
             string query = "select top(4)* from Contact order by ContactID desc";
 

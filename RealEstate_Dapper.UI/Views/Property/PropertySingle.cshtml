@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "PropertySingle";
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
 }
@@ -50,25 +49,16 @@
         <div class="row">
             <div class="col-lg-8 w3l-news">
                 <div class="blog-single-post">
-                    @await Component.InvokeAsync("_PropertySliderComponentPartial")
+                    @await Component.InvokeAsync("_PropertySliderComponentPartial" , new{id = ViewBag.i})
 
                     <div class="single-post-content">
-                        <h3 class="post-content-title mb-3">Description</h3>
+                        <h3 class="post-content-title mb-3">İlan Açıklaması</h3>
                         <p class="mb-4">
-                            Lorem model text, and a search for 'lorem ipsum' will uncover many web sites still in their
-                            infancy. Various
-                            versions have evolved over the years, sometimes by accident, sometimes on purpose
-                            injected humour and the like.
+                            @ViewBag.description
                         </p>
-                        <p class="mb-4">
-                            When you decide to put your business online it is a little bet tricky step
-                            for novice
-                            computer users because they want to keep data safe & secure.
-                            This problem developed from companies which did not take security seriously. Lorem ipsum
-                            dolor sit amet elit.
-                        </p>
+
                         <div class="single-bg-white">
-                            <h3 class="post-content-title mb-4">Property detail</h3>
+                            <h3 class="post-content-title mb-4">İlan Detayları</h3>
                             <ul class="details-list">
                                 <li><strong>Property id :</strong> PRPT12345 </li>
                                 <li><strong>Property size :</strong> @ViewBag.productSize </li>
@@ -84,31 +74,21 @@
                                 <li><strong>Avaiable from :</strong> Aug 2019 </li>
                             </ul>
                         </div>
-                        <div class="single-bg-white">
-                            <h3 class="post-content-title mb-4">Amenities</h3>
-                            <ul class="details-list">
-                                <li><strong>Air Conditioning </strong></li>
-                                <li><strong>Buil-In Wardrobes </strong> </li>
-                                <li><strong>Dishwasher</strong> </li>
-                                <li><strong>Floor Coverings </strong> </li>
-                                <li><strong>Medical / Clinic </strong> </li>
-                                <li><strong>Fencing</strong> </li>
-                                <li><strong>Internet and wifi </strong> </li>
-                            </ul>
-                        </div>
+                     
                     </div>
+
+                    @await Component.InvokeAsync("_PropertyAmenityComponentPartial")
 
                     <div class="single-bg-white">
-                        <h3 class="post-content-title mb-4">Location</h3>
+                        <h3 class="post-content-title mb-4">İlan Konumu</h3>
                         <div class="agent-map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2895687731!2d-74.26055986835598!3d40.697668402590374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1562582305883!5m2!1sen!2sin" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+                            <iframe src="@ViewBag.location"></iframe>
                         </div>
                     </div>
-
                     <div class="single-bg-white mb-0">
                         <h3 class="post-content-title mb-4">Video</h3>
                         <div class="post-content">
-                            <iframe src="https://www.youtube.com/embed/jqP3m3ElcxA" frameborder="0" allowfullscreen=""></iframe>
+                            <iframe src="@ViewBag.video" frameborder="0" allowfullscreen=""></iframe>
                         </div>
                     </div>
                 </div>
@@ -116,26 +96,7 @@
             <div class="sidebar-side col-lg-4 col-md-12 col-sm-12 mt-lg-0 mt-5">
                 <aside class="sidebar">
 
-                    <!-- Popular Post Widget-->
-                    <div class="sidebar-widget popular-posts">
-                        <div class="sidebar-title">
-                            <h4>Contact an Agent</h4>
-                        </div>
-
-                        <article class="post">
-                            <figure class="post-thumb">
-                                <img src="~/web/assets/images/l5.jpg" class="radius-image" alt="">
-                            </figure>
-                            <div class="text mb-0">
-                                <a href="blog-single.html">
-                                    Company realty
-                                </a>
-                                <div class="post-info">+(12) 324 567 89</div>
-                                <div class="post-info"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4c2f23213c2d22353e292d2038350c212d2520622f2321">[email&#160;protected]</a></div>
-                            </div>
-                        </article>
-                        <button type="submit" class="btn btn-primary btn-style w-100">Request details</button>
-                    </div>
+                    @await Component.InvokeAsync("_PropertyAppUserComponentPartial")
 
 
                     <!-- Popular Post Widget-->

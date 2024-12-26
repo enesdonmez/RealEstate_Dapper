@@ -4,10 +4,10 @@ namespace RealEstate_Dapper.Api.Repositories.BottomGridRepositories
 {
     public interface IBottomGridRepository
     {
-        Task<List<ResultBottomGridDto>> GetAllBottomGridAsync();
-        Task CreateBottomGridAsync(CreateBottomGridDto createBottomGridDto);
-        Task DeleteBottomGridAsync(int id);
-        Task UpdateBottomGridAsync(UpdateBottomGridDto updateBottomGridDto);
-        Task<GetBottomGridDto> GetBottomGridAsync(int id);
+        Task<List<ResultBottomGridDto>> GetAllBottomGrid();
+        Task CreateBottomGrid(CreateBottomGridDto createBottomGridDto);
+        Task DeleteBottomGrid(int id);
+        Task UpdateBottomGrid(UpdateBottomGridDto updateBottomGridDto);
+        Task<GetBottomGridDto> GetBottomGrid(int id);
     }
 }

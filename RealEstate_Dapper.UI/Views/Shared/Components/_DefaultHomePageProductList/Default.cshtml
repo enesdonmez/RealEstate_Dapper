@@ -1,6 +1,6 @@
 ﻿@using RealEstate_Dapper.UI.Dtos.ProductDtos
 
-@model List<ResultProductDto>
+@model List<ResultProductWithCategoryDto>
 <section class="locations-1" id="locations">
     <div class="locations py-5">
         <div class="container py-lg-5 py-md-4 py-2">
@@ -17,7 +17,7 @@
                                     <span>@item.Type</span>
                                     <span>@item.CategoryName</span>
                                 </div>
-                                <img class="img-fluid" style="height:200px;width:600px;" src="@item.coverImage" alt="">
+                                <img class="img-fluid" style="height:200px;width:600px;" src="@item.CoverImage" alt="@item.Title">
                                 <div class="box-content">
                                     <h3 class="title">@item.Price ₺</h3>
                                     <span class="post">@item.Address @item.City - @item.District </span>

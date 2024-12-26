@@ -11,6 +11,8 @@
         public string coverImage { get; set; }
         public string Type { get; set; }
         public string Address { get; set; }
+        public string Description { get; set; }
+        public string SlugUrl { get; set; }
         public bool DealOfTheDay { get; set; }
         public DateTime AdvertisementDate { get; set; }
     }

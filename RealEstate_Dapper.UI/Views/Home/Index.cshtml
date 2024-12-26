@@ -1,9 +1,60 @@
-﻿@{
+﻿@model List<ResultCategoryDto>
+@{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
 }
 
-@await Component.InvokeAsync("_DefaultFeatureComponentPartial")
+<section class="w3l-cover-3">
+	<div class="cover top-bottom">
+		<div class="container">
+			<div class="middle-section text-center">
+				<div class="section-width">
+					<p>It's great to be home!</p>
+					<h2>Find a property today</h2>
+					<div class="most-searches">
+						<h4>Sık Arananlar</h4>
+						<ul>
+							<li><a href="#link">Villa</a></li>
+							<li><a href="#link">Daire</a></li>
+							<li><a href="#link">Yazlık</a></li>
+						</ul>
+					</div>
+					<form asp-action="PartialSearch" asp-controller="Home" class="w3l-cover-3-gd" method="post">
+						<input type="search" name="word" placeholder="anahtar kelimeyi girin" required>
+						<span class="input-group-btn">
+							<select class="btn btn-default" name="categoryId" required="">
+								<option selected="">Gayrimenkul türü</option>
+								@foreach (var item in Model)
+								{
+									<option value="@item.CategoryID">@item.CategoryName</option>
+
+								}
+
+							</select>
+						</span>
+						<span class="input-group-btn">
+							<select class="btn btn-default" name="cityVal" required="">
+								<option selected="">Şehir Seçiniz</option>
+								<option>İstanbul</option>
+								<option>Berlin</option>
+								<option>Roma</option>
+								<option>Amsterdam</option>
+								<option>Lyon</option>
+								<option>America</option>
+								<option>Srilanka</option>
+							</select>
+						</span>
+						<button type="submit" class="btn-primary">Ara</button>
+					</form>
+				</div>
+				<section id="bottom" class="demo">
+					<a href="#bottom"><span></span>kaydır</a>
+				</section>
+			</div>
+		</div>
+	</div>
+</section>
+
 
 @await Component.InvokeAsync("_DefaultHomePageProductList")
 

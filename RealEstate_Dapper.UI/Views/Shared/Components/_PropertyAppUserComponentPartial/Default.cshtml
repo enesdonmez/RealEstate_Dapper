@@ -1,0 +1,20 @@
+﻿@model GetAppUserByProductIdDto
+<div class="sidebar-widget popular-posts">
+    <div class="sidebar-title">
+        <h4>Contact an Agent</h4>
+    </div>
+
+    <article class="post">
+        <figure class="post-thumb">
+            <img src="@Model.UserImageUrl" class="radius-image" alt="">
+        </figure>
+        <div class="text mb-0">
+            <a href="blog-single.html">
+                @Model.Name
+            </a>
+            <div class="post-info">@Model.Phone</div>
+            <div class="post-info">@Model.Email</div>
+        </div>
+    </article>
+    <button type="submit" class="btn btn-primary btn-style w-100">Detaylı iletişim bilgileri</button>
+</div>

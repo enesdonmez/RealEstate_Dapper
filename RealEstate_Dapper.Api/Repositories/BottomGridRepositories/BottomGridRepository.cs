@@ -15,7 +15,7 @@ namespace RealEstate_Dapper.Api.Repositories.BottomGridRepositories
             _context = context;
         }
 
-        public async Task CreateBottomGridAsync(CreateBottomGridDto createBottomGridDto)
+        public async Task CreateBottomGrid(CreateBottomGridDto createBottomGridDto)
         {
             string query = "insert into BottomGrid (Icon,Title,Description) Values(@icon,@title,@description)";
             var parameters = new DynamicParameters();
@@ -29,7 +29,7 @@ namespace RealEstate_Dapper.Api.Repositories.BottomGridRepositories
             }
         }
 
-        public async Task DeleteBottomGridAsync(int id)
+        public async Task DeleteBottomGrid(int id)
         {
             string query = "Delete from BottomGrid Where BottomGridID = @id";
             var parameter = new DynamicParameters();
@@ -41,7 +41,7 @@ namespace RealEstate_Dapper.Api.Repositories.BottomGridRepositories
             }
         }
 
-        public async Task<List<ResultBottomGridDto>> GetAllBottomGridAsync()
+        public async Task<List<ResultBottomGridDto>> GetAllBottomGrid()
         {
             string query = "select * from BottomGrid";
 
@@ -52,7 +52,7 @@ namespace RealEstate_Dapper.Api.Repositories.BottomGridRepositories
             }
         }
 
-        public async Task<GetBottomGridDto> GetBottomGridAsync(int id)
+        public async Task<GetBottomGridDto> GetBottomGrid(int id)
         {
             var query = "Select * from BottomGrid Where BottomGridID = @id";
             var parameter = new DynamicParameters();
@@ -65,7 +65,7 @@ namespace RealEstate_Dapper.Api.Repositories.BottomGridRepositories
             }
         }
 
-        public async Task UpdateBottomGridAsync(UpdateBottomGridDto updateBottomGridDto)
+        public async Task UpdateBottomGrid(UpdateBottomGridDto updateBottomGridDto)
         {
             var query = "Update BottomGrid set Title = @title , Icon=@icon , Description=@description where BottomGridID = @id";
             var parameters = new DynamicParameters();

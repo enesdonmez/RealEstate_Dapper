@@ -19,28 +19,28 @@ namespace RealEstate_Dapper.Api.Controllers
         [HttpGet("GetContactList")]
         public async Task<IActionResult> GetContactList()
         {
-            var values = await _contactRepository.GetAllContactAsync();
+            var values = await _contactRepository.GetAllContact();
             return Ok(values);
         }
 
         [HttpGet("GetLastFourContactList")]
         public async Task<IActionResult> GetLastFourContactList()
         {
-            var values = await _contactRepository.GetLastFourContactAsync();
+            var values = await _contactRepository.GetLastFourContact();
             return Ok(values);
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateContact(CreateContactDto createContactDto)
         {
-            await _contactRepository.CreateContactAsync(createContactDto);
+            await _contactRepository.CreateContact(createContactDto);
             return Ok("Ekleme Başarılı.");
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetContact(int id)
         {
-            var values = await _contactRepository.GetContactAsync(id);
+            var values = await _contactRepository.GetContact(id);
             return Ok(values);
         }
     }

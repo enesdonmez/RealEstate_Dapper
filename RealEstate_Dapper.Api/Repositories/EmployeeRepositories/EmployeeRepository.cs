@@ -14,7 +14,7 @@ namespace RealEstate_Dapper.Api.Repositories.EmployeeRepositories
             _context = context;
         }
 
-        public async Task CreateEmployeeAsync(CreateEmployeeDto createEmployeeDto)
+        public async Task CreateEmployee(CreateEmployeeDto createEmployeeDto)
         {
             string query = "insert into Employee (Name,Title,Mail,PhoneNumber,ImageUrl,Status) Values(@employeeName,@title,@mail,@phoneNumber,@imageUrl,@status)";
             var parameters = new DynamicParameters();
@@ -31,7 +31,7 @@ namespace RealEstate_Dapper.Api.Repositories.EmployeeRepositories
             }
         }
 
-        public async Task DeleteEmployeeAsync(int id)
+        public async Task DeleteEmployee(int id)
         {
             string query = "delete from Employee Where EmployeeID = @id";
             var parameter = new DynamicParameters();
@@ -43,7 +43,7 @@ namespace RealEstate_Dapper.Api.Repositories.EmployeeRepositories
             }
         }
 
-        public async Task<List<ResultEmployeeDto>> GetAllEmployeeAsync()
+        public async Task<List<ResultEmployeeDto>> GetAllEmployee()
         {
             string query = "select * from Employee";
 
@@ -54,7 +54,7 @@ namespace RealEstate_Dapper.Api.Repositories.EmployeeRepositories
             }
         }
 
-        public async Task<GetByIDEmployeeDto> GetEmployeeAsync(int id)
+        public async Task<GetByIDEmployeeDto> GetEmployee(int id)
         {
             var query = "Select * from Employee Where EmployeeID = @id";
             var parameter = new DynamicParameters();
@@ -67,7 +67,7 @@ namespace RealEstate_Dapper.Api.Repositories.EmployeeRepositories
             }
         }
 
-        public async Task UpdateEmployeeAsync(UpdateEmployeeDto updateEmployeeDto)
+        public async Task UpdateEmployee(UpdateEmployeeDto updateEmployeeDto)
         {
             var query = "Update Employee set Name = @employeeName , Title=@title , Mail=@mail , PhoneNumber=@phoneNumber, ImageUrl=@imageUrl , Status=@status  where EmployeeID = @id";
             var parameters = new DynamicParameters();
